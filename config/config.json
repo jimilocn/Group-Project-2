@@ -1,0 +1,21 @@
+{
+  "development": {
+    "username": "jimilocn",
+    "password": "Cheese1!",
+    "database": "exampledb",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "jimilocn",
+    "password": "Cheese1!",
+    "database": "testdb",
+    "host": "localhost",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}
