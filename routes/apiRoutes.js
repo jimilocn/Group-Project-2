@@ -21,4 +21,24 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  app.get("/api/todo", function(req, res) {
+    db.Todo.findAll({}).then(function(dbTodos) {
+      res.json(dbTodos);
+    });
+  });
+
+
+  app.post("/api/todo", function(req, res) {
+    db.Todo.create(req.body).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
+
+  app.delete("/api/todo/:id", function(req, res) {
+    db.Todo.destroy({ where: { id: req.params.id } }).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
+  
 };
