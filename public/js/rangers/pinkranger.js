@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    console.log("the JS is linked properly")
+
+
     $('input.autocomplete').autocomplete({
         data: {
             "Apple": null,
@@ -10,10 +14,10 @@ $(document).ready(function () {
 
 
     // Get references to page elements
-    var $todoText = $("#todo-text");
-    var $todoDescription = $("#todo-description");
+    var $todoText = $(".todo-text");
+    var $todoDescription = $(".todo-description");
     var $submitBtn = $("#submit");
-    var $todoList = $("#todo-list");
+    var $todoList = $(".todo-list");
 
 
     // The API object contains methods for each kind of request we'll make
@@ -46,22 +50,25 @@ $(document).ready(function () {
     var refreshTodo = function () {
         API.getTodo().then(function (data) {
             var $todo = data.map(function (todo) {
-                var $a = $("<a>")
-                    .text(todo.text)
-                    .attr("href", "/todo/" + todo.id);
+
+                var todoCard = "<div class='card blue-grey darken-1 list-group-item' data-id="+todo.id+"><div class='card-content white-text'><span class='card-title'>"+todo.text+"</span><p>"+todo.description+"</p></div><div class='card-action'><a href='#' class = 'btn-small red waves-effect waves-light delete' data-id="+todo.id+" >Delete</a>"
+                // var $a = $("<a>")
+                //     .html("<h6>"+todo.text+"</h6>")
+                //     .attr("href", "/todo/" + todo.id);
 
                 var $li = $("<li>")
                     .attr({
                         class: "list-group-item",
                         "data-id": todo.id
                     })
-                    .append($a);
+                    // .append($a);
 
                 var $button = $("<button>")
                     .addClass("btn btn-danger float-right delete")
                     .text("ｘ");
 
-                $li.append($button);
+                // $li.append($button);
+                $li.append(todoCard);
 
                 return $li;
             });
@@ -77,7 +84,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var todo = {
-            text: $("#todo-text").val().trim(),
+            text: $(".todo-text").val().trim(),
             description: $todoDescription.val().trim()
         };
 
@@ -98,15 +105,17 @@ $(document).ready(function () {
     // Remove the example from the db and refresh the list
     var handleDeleteBtnClick = function () {
         var idToDelete = $(this)
-            .parent()
+            // .parent()
             .attr("data-id");
-
+console.log("THIS IS THE ID TO DELETE" + idToDelete)
         API.deleteTodo(idToDelete).then(function () {
             refreshTodo();
         });
+
     };
 
     // Add event listeners to the submit and delete buttons
     $submitBtn.on("click", handleFormSubmit);
     $todoList.on("click", ".delete", handleDeleteBtnClick);
+    refreshTodo();
 });
