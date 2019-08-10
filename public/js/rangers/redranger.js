@@ -21,5 +21,5 @@ socket.on('is_online', function (username) {
 });
 
 // ask username
-var username = prompt('Please tell me your name');
+var username = ('Please tell me your name');
 socket.emit('username', username);
