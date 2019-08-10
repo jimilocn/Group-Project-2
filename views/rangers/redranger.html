@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link href="../../public/styles/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col s12 m3 l2" id="task-list">
+            <div class="card" id="task-list">
+                <p>Task List</p>
+            </div>
+        </div>
+        <div class="col s12 m6 l8" id="calendar-view">
+            <div class="card" id="calendar-view">
+                <p>Calendar</p>
+            </div>
+        </div>
+        <div class="col s12 m3 l2" id="chat-area">
+            <div class="card" id="chat-box">
+                <form class="chat-form" action="/" method="POST" id="chatForm">
+                    <input id="txt" autocomplete="off" autofocus="on"
+                        placeholder="type your message here..." /><button>Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="./index.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+</body>
+
+</html>

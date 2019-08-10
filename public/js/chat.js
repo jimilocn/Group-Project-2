@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:8080');
+var socket = io.connect('http://localhost:3000');
 var io = require('socket.io')(http);
 
 

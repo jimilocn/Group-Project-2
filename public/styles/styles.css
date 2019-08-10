@@ -1,3 +1,79 @@
+/* White background: #F8F8F8
+Grey from logo: #c6bdb4
+Yellow from flower of background: #c6ce1c
+grey-blue from teapot in background: #94b5ae
+dark brown from coffee in background: #0a0200
+dark grey from keyboard on background: #545454 */
+
+* { 
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+  background-color: #F8F8F8;
+ }
+
+html, body {
+    background-image: url(/public/assets/image_1920.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#chat-box { 
+  background-color: #94b5ae;
+  min-width: 20%;
+  height: 100%;
+  float: right;
+  border-color: #545454; 
+  border-style: solid; 
+  border-width: .5px;
+  color:#0a0200;
+  opacity: 0.9;
+ }
+
+form { 
+  background: #94b5ae;; 
+  padding: 3px; 
+  position: fixed; 
+  bottom: 0; 
+  width: 20%; 
+  border-color: #545454; 
+  border-style: solid; 
+  border-width: .5px;
+}
+form input { 
+   padding: 10px; 
+   width: 70%; 
+   margin-right: .5%;
+   border-color: #545454; 
+   border-style: solid; 
+   border-width: .5px;
+   background-color: #F8F8F8;
+   color: #0a0200; 
+  }
+form button { 
+  width: 25%; 
+  background: #c6bdb4; 
+  border: none; 
+  padding: 10px; 
+  margin-left: 2%;
+  font-size: 1.5rem;
+}
+#messages { 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0;
+  min-width: 20%;
+  background-color: #94b5ae;
+  color: #0a0200; 
+}
+#messages li { 
+  padding: 5px 10px; 
+}
+
+#messages li:nth-child(odd) { 
+  background: #94b5ae; 
+}
+
 .list-group-item {
   line-height: 2.5;
 }
