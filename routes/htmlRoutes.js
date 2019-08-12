@@ -24,6 +24,10 @@ module.exports = function(app) {
 
   });
 
+  //Temporary Route To Test The Translate Function
+  app.get("/translate", function(req, res) 
+  { res.sendFile(path.join(__dirname, "../views/rangers/blackranger.html"));  });
+
   // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
   //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
