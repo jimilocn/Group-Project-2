@@ -34,7 +34,7 @@ $(document).ready(function () {
         },
         getTodo: function () {
             return $.ajax({
-                url: "api/todo",    
+                url: "api/todo",
                 type: "GET"
             });
         },
@@ -51,7 +51,7 @@ $(document).ready(function () {
         API.getTodo().then(function (data) {
             var $todo = data.map(function (todo) {
 
-                var todoCard = "<div class='card blue-grey darken-1 list-group-item' data-id="+todo.id+"><div class='card-content white-text'><span class='card-title'>"+todo.text+"</span><p>"+todo.description+"</p></div><div class='card-action'><a href='#' class = 'btn-small red waves-effect waves-light delete' data-id="+todo.id+" >Delete</a>"
+                var todoCard = "<div class='card yellow lighten-2 darken-1 list-group-item' data-id=" + todo.id + "><div class='card-content white-text'><span class='card-title grey-text text-darken-4'>" + todo.text + "</span><p class='grey-text text-darken-4'>" + todo.description + "</p></div><div class='card-action'><a href='#' class = 'btn-small red waves-effect waves-light delete' data-id=" + todo.id + " >Delete</a> <p> <label><input class = 'check' type='checkbox'/><span class='grey-text text-darken-4'>Completed </span></label></p>"
                 // var $a = $("<a>")
                 //     .html("<h6>"+todo.text+"</h6>")
                 //     .attr("href", "/todo/" + todo.id);
@@ -61,7 +61,7 @@ $(document).ready(function () {
                         class: "list-group-item",
                         "data-id": todo.id
                     })
-                    // .append($a);
+                // .append($a);
 
                 var $button = $("<button>")
                     .addClass("btn btn-danger float-right delete")
@@ -69,6 +69,7 @@ $(document).ready(function () {
 
                 // $li.append($button);
                 $li.append(todoCard);
+           
 
                 return $li;
             });
@@ -107,7 +108,7 @@ $(document).ready(function () {
         var idToDelete = $(this)
             // .parent()
             .attr("data-id");
-console.log("THIS IS THE ID TO DELETE" + idToDelete)
+        console.log("THIS IS THE ID TO DELETE" + idToDelete)
         API.deleteTodo(idToDelete).then(function () {
             refreshTodo();
         });
@@ -118,4 +119,7 @@ console.log("THIS IS THE ID TO DELETE" + idToDelete)
     $submitBtn.on("click", handleFormSubmit);
     $todoList.on("click", ".delete", handleDeleteBtnClick);
     refreshTodo();
+
+
+
 });
