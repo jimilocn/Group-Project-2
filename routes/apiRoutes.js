@@ -1,4 +1,5 @@
 var db = require("../models");
+var orm = require("../config/orm.js");
 
 module.exports = function(app) {
   // Get all examples
@@ -41,4 +42,11 @@ module.exports = function(app) {
     });
   });
   
+  //Route That Will Call The Translate Function In The orm.js File
+  app.post("/translate", function(request, response)
+  {
+    //Calls The Function And Then Sends The Data To The HTML Page
+    orm.translate(request.body.userText, request.body.langId, function(data)
+    {	response.send(data);	})
+  })
 };
