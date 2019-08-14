@@ -1,3 +1,139 @@
+/* White background: #F8F8F8
+Grey from logo: #c6bdb4
+Yellow from flower of background: #c6ce1c
+grey-blue from teapot in background: #94b5ae
+dark brown from coffee in background: #0a0200
+dark grey from keyboard on background: #545454 */
+
+* { 
+  margin: 0;
+  padding: 0; 
+}
+
+html { 
+    background: url('/assets/deskbackground.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c6ce1c;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #949b10;
+}
+
+#containerworldTime {
+  height: 200px;
+  margin:auto;
+  overflow: hidden;
+  width: 770px;
+  border:grey solid 2px;
+  border-radius: 10px;
+}
+#containerworldTime iframe {
+  border: 0 solid;
+  height: 1103px;
+  margin-left: -110px;
+  margin-top: -300px;
+  width: 979px;
+  -webkit-transform:scale(0.85);
+  -moz-transform:scale(0.85);
+  -o-transform:scale(0.85);
+  -ms-transform:scale(0.85);
+}  
+
+#username-display {
+  align-content: center;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.todo-wrapper {
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    overflow: scroll;
+    max-height: 500px;
+
+}
+
+.check{
+    left:10px;
+}
+
+.chat-box-container {
+  width: 100%;
+  background-color: #94b5ae;
+  border-color: #545454; 
+  border-style: solid; 
+  border-width: .5px;
+  color: #0a0200;
+  opacity: 0.9;
+  margin: 5px;
+  padding: 20px;
+ }
+
+
+#chat-box {
+  min-width: inherit;
+  background-color: #94b5ae;
+  border-color: #545454; 
+  border-style: solid; 
+  border-width: .5px;
+  color:#0a0200;  
+}
+
+#form-input { 
+   border-color: #545454; 
+   border-style: solid; 
+   border-width: .5px;
+   background-color: #F8F8F8;
+   color: #0a0200;
+  }
+#form-button { 
+  background: #c6bdb4; 
+  border: none; 
+  padding: 10px; 
+  margin-left: 2%;
+  font-size: 1.5rem;
+}
+
+#messages { 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0;
+  background-color: #94b5ae;
+  color: #0a0200; 
+}
+#messages li { 
+  padding: 5px 10px; 
+}
+
+#messages li:nth-child(odd) { 
+  background: #94b5ae; 
+}
+
 .list-group-item {
   line-height: 2.5;
 }
