@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "ahsalg8r5q30nq47",
-    "password": "sxbe3fvsxvqe294l",
-    "database": "ntf7hi1frpfkwswc",
-    "host": "vhw3t8e71xdz9k14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "Test",
+    "password": "Test1234",
+    "database": "dashboarddb",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
