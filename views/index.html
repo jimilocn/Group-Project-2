@@ -13,21 +13,21 @@
     <link href=“../../public/styles/styles.css” rel=“stylesheet”>
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />
-    <link href='/Group-Project-2/public/assets/core/main.css' rel='stylesheet' />
-    <link href='/Group-Project-2/public/assets/daygrid/main.css' rel='stylesheet' />
-    <link href='/Group-Project-2/public/assets/fullcalendar/fullcalendar.css' rel='stylesheet' />
-    <link href='/Group-Project-2/public/assets/timegrid/main.css' rel='stylesheet' />
-    <link href='/Group-Project-2/public/assets/bootstrap/main.css' rel='stylesheet' />
+    <link href='/Group-Project-2/public/styles/coremain.css' rel='stylesheet' />
+    <link href='/Group-Project-2/public/styles/daygridmain.css' rel='stylesheet' />
+    <link href='/Group-Project-2/public/styles/fullcalendar.css' rel='stylesheet' />
+    <link href='/Group-Project-2/public/styles/timegridmain.css' rel='stylesheet' />
+    <link href='/Group-Project-2/public/styles/bootstrapmain.css' rel='stylesheet' />
 
 
-    <script src='/Group-Project-2/public/assets/core/main.js'></script>
-    <script src='/Group-Project-2/public/assets/daygrid/main.js'></script>
-    <script src='/Group-Project-2/public/assets/timegrid/main.js'></script>
-    <script src='/Group-Project-2/public/assets/interaction/main.js'></script>
-    <script src='/Group-Project-2/public/assets/moment/main.js'></script>
-    <script src='/Group-Project-2/public/assets/fullcalendar/fullCalendar.js'></script>
-    <script src='/Group-Project-2/public/assets/bootstrap/main.js'></script>
-    <script src="/js/rangers/blackranger.js"></script>
+    <script src='/Group-Project-2/public/js/coremain.js'></script>
+    <script src='/Group-Project-2/public/js/daygridmain.js'></script>
+    <script src='/Group-Project-2/public/js/timegridmain.js'></script>
+    <script src='/Group-Project-2/public/js/interactionmain.js'></script>
+    <script src='/Group-Project-2/public/js/momentmain.js'></script>
+    <script src='/Group-Project-2/public/js/fullcalendar.js'></script>
+    <script src='/Group-Project-2/public/js/bootstrapmain.js'></script>
+    <script src="../public/js/translation.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/tasks.js"></script>
     <title>Meeting Mate World Wide</title>
@@ -92,7 +92,7 @@
         </div>
     </div>
 
-    <div id='calendar' style=""></div>
+    <div id='calendar'></div>
 
     <form class="create-form text-center">
         <div class="form-group">
@@ -114,7 +114,7 @@
                 <div class=“input-field col s7 room-select”>
                     <select>
                         <option value=“”>Select a chat room</option>
-                        <option value=“1">4539</option>
+                        <option value="1">4539</option>
                         <option value=“2”>1</option>
                     </select>
                     <label>Chat rooms</label>
@@ -124,7 +124,7 @@
         <div class=“row”>
             <div class=“card” id=“chat-box-container”>
                 <div class=“row”>
-                    <div class=“col s12 m12">
+                    <div class="col s12 m12">
                         <div class=“card-content chat-history”>
                             <table>
                                 <thead class=“hide-table-header”>
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class=“row”>
-                    <div class=“col s12 m12">
+                    <div class="col s12 m12">
                         <div class=“chat-box”>
                             <form class=“form” action=“/” method=“POST”>
                                 <input id=“form-input” autocomplete=“off” autofocus=“on” placeholder=“type your message
@@ -161,7 +161,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../public/js/rangers/yellowranger.js"></script>
+    <script src="../public/js/calendarfunction.js"></script>
     <script>
         M.AutoInit();
     </script>
