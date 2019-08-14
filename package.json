@@ -17,13 +17,9 @@
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
     "mysql2": "^1.6.5",
-<<<<<<< HEAD
-    "sequelize": "^5.8.6",
-    "socket.io": "^2.2.0"
-=======
+    "socket.io": "^2.2.0",
     "path": "^0.12.7",
     "sequelize": "^5.8.6"
->>>>>>> master
   },
   
   "devDependencies": {
