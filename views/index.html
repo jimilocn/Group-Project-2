@@ -8,52 +8,80 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
-    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />
-    <link href='/styles/coremain.css' rel='stylesheet' />
-    <link href='/styles/daygridmain.css' rel='stylesheet' />
-    <link href='/styles/fullcalendar.css' rel='stylesheet' />
-    <link href='/styles/timegridmain.css' rel='stylesheet' />
-    <link href='/styles/bootstrapmain.css' rel='stylesheet' />
-    <link href="/styles/styles.css"rel=“stylesheet”>
+    <!-- <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' /> -->
+    <link href='/styles/coremain.css' rel='stylesheet'>
+    <link href='/styles/daygridmain.css' rel='stylesheet'>
+    <link href='/styles/fullcalendar.css' rel='stylesheet'>
+    <link href='/styles/timegridmain.css' rel='stylesheet'>
+    <!-- <link href='/styles/bootstrapmain.css' rel='stylesheet' /> -->
+    <link href="/styles/styles.css" rel="stylesheet">
 
-
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src='/js/coremain.js'></script>
     <script src='/js/daygridmain.js'></script>
     <script src='/js/timegridmain.js'></script>
     <script src='/js/interactionmain.js'></script>
     <script src='/js/momentmain.js'></script>
     <script src='/js/fullcalendar.js'></script>
-    <script src='/js/bootstrapmain.js'></script>
+    <!-- <script src='/js/bootstrapmain.js'></script> -->
     <script src="/js/translation.js"></script>
     <script src="/js/tasks.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
+
 
     <title>Meeting Mate World Wide</title>
 </head>
 
 <body>
-    <header class=“header”>
-        <nav class=“masthead”>
-            <div class=“nav-wrapper”>
-                <img class=“left” id=“logo” alt=“MMWW”></a>
-                <ul id=“nav-mobile” class=“right”>
-                    <input name="firstname" type="text" id="username-display" placeholder="Enter your name"><button
-                        id="submitName">Submit</button>
-                </ul>
+    <div class="row">
+
+        <header class="header">
+            <nav class="masthead">
+                <div class="nav-wrapper teal lighten-4">
+                    <div class="col s12 m8">
+
+                        <img class="left" src="/assets/mmwwlogo.png" id="logo" alt="MMWW" style="height:60px">
+                    </div>
+                    <div class="col s12 m4">
+                        <ul id="nav-mobile" class="">
+
+                            <div class="input-field col s12">
+
+                                <input name="firstname" type="text" id="autocomplete-input"
+                                    class="autocomplete todo-description username">
+                                <label for="autocomplete-input">enter your name</label>
+
+                                <button class="btn waves-effect waves-light" type="submit" name="action"
+                                    id="submitName">ADD
+
+                                </button>
+                            </div>
+
+
+                        </ul>
+                    </div>
                 </div>
-        </nav>
+            </nav>
+    </div>
     </header>
 
     <div class="container">
 
+
         <div class="row">
+
             <div class="col s12 m4  yellow lighten-4 grey-text text-darken-4" style=" border-style: solid;
-                    border-width: 5px;
-                    border-color:#545454;
-                    overflow: scroll;
-                    max-height: 500px; border-radius: 5px;
-                    margin-top: 75px;">
+            border-width: 5px;
+            border-color:#545454;
+            overflow: auto;
+            max-height: 500px; border-radius: 5px;
+            margin-top: 75px;
+            opacity: 0.95;">
+                <div class="row">
+                    <div class="col s12 center teal-text text-lighten-1">
+                        <h4>TO DO LIST</h4>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
@@ -89,10 +117,77 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+        <div class="row">
+            <div class="col s12 m4">
+                <!-- I-FRAME -->
+                <div id="containerworldTime">
+                    <iframe src="https://freecurrencyrates.com/en/" width="992" height="500" scrolling="no"></iframe>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div id='calendar'></div>
+    <div id='calendar'>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    plugins: ['interaction', 'dayGrid', 'timeGrid', 'bootstrap'],
+                    timeZone: 'UTC',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                    editable: true,
+                    eventLimit: true,
+                    views: {
+                        timeGrid: {
+                            eventLimit: 6 // adjust to 6 only for timeGridWeek/timeGridDay
+                        },
+                    },
+                    eventTimeFormat: { // like '14:30:00'
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                    },
+                    eventDrop: function (info) {
+                        console.log(info)
+                        alert(info.event.title + " was dropped on " + info.event.start
+                        .toISOString());
+                        if (!confirm("Are you sure about this change?")) {
+                            info.revert();
+                        }
+                    },
+                    dateClick: function (info) {
+                        console.log(info)
+                        var newEvent = prompt("Please add new event")
+                        calendar.addEvent({
+                            title: newEvent,
+                            start: info.dateStr
+                        });
+                        newEvent.remove();
+                    }
+                });
+                calendar.render();
+                calendar.changeView('dayGridMonth');
+                // API call db get all the events
+                calendar.addEvent({
+                    title: 'Emails',
+                    start: '2019-08-15T11:30:00Z',
+                    end: '2018-09-15T12:30:00Z'
+                });
+                calendar.addEvent({
+                    title: 'Lunch',
+                    start: '2019-08-15T12:30:00Z',
+                    end: '2018-09-15T14:30:00Z'
+                });
+            });
+        </script>
+    </div>
 
     <form class="create-form text-center">
         <div class="form-group">
@@ -103,31 +198,31 @@
     </form>
 
 
-    <div class=“container chat”>
-        <div class=“row”>
-            <div class=“col s12 m12 chat-room”>
-                <div class=“input-field col s5 room-input”>
-                    <input id=“room_enter” type=“text” class=“validate”>
-                    <label for=“room_enter”>Enter in a chat room number</label>
+    <div class="container chat">
+        <div class="row">
+            <div class="col s12 m12 chat-room">
+                <div class="input-field col s5 room-input">
+                    <input id="room_enter" type="text" class="validate">
+                    <label for="room_enter">Enter in a chat room number</label>
                 </div>
-                <div class=“room-select”></div>
-                <div class=“input-field col s7 room-select”>
+                <div class="room-select"></div>
+                <div class="input-field col s7 room-select">
                     <select>
-                        <option value=“”>Select a chat room</option>
+                        <option value="">Select a chat room</option>
                         <option value="1">4539</option>
-                        <option value=“2”>1</option>
+                        <option value="2">1</option>
                     </select>
                     <label>Chat rooms</label>
                 </div>
             </div>
         </div>
-        <div class=“row”>
-            <div class=“card” id=“chat-box-container”>
-                <div class=“row”>
+        <div class="row">
+            <div class="card" id="chat-box-container">
+                <div class="row">
                     <div class="col s12 m12">
-                        <div class=“card-content chat-history”>
+                        <div class="card-content chat-history">
                             <table>
-                                <thead class=“hide-table-header”>
+                                <thead class="hide-table-header">
                                     <tr>
                                         <th>Sent by</th>
                                         <th>Message</th>
@@ -136,21 +231,22 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class=“left” id=“chat-from”>Sample from</td>
-                                        <td class=“center” id=“chat-message”>Sample Text message</td>
-                                        <td class=“right” id=“chat-sent-date”>8/10/19 2:00pm</td>
+                                        <td class="left" id="chat-from">Sample from</td>
+                                        <td class="center" id="chat-message">Sample Text message</td>
+                                        <td class="right" id="chat-sent-date">8/10/19 2:00pm</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div class=“row”>
+                <div class="row">
                     <div class="col s12 m12">
-                        <div class=“chat-box”>
-                            <form class=“form” action=“/” method=“POST”>
-                                <input id=“form-input” autocomplete=“off” autofocus=“on” placeholder=“type your message
-                                    here...” /><button id=“form-button”>Send</button>
+                        <div class="chat-box">
+                            <form class="form" action="/" method=" POST">
+                                <input id="form-input" autocomplete="off" autofocus="on" placeholder="type your message
+                                    here..." /><button class="btn waves-effect waves-light" type="submit" name="action"
+                                    id="form-button">SEND</button>
                             </form>
                         </div>
                     </div>

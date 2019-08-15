@@ -18,6 +18,51 @@ html {
     background-size: cover;
 }
 
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c6ce1c;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #949b10;
+}
+
+#containerworldTime {
+  height: 200px;
+  margin:auto;
+  overflow: hidden;
+  width: 770px;
+  border:grey solid 2px;
+  border-radius: 10px;
+}
+#containerworldTime iframe {
+  border: 0 solid;
+  height: 1103px;
+  margin-left: -110px;
+  margin-top: -300px;
+  width: 979px;
+  -webkit-transform:scale(0.85);
+  -moz-transform:scale(0.85);
+  -o-transform:scale(0.85);
+  -ms-transform:scale(0.85);
+}  
+
 #username-display {
   align-content: center;
   margin-right: 10px;

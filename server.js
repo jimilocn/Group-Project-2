@@ -3,7 +3,7 @@ const express = require('express');
 const socket = require('socket.io');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-// var db = require("./models");
+var db = require("./models");
 //----------CALLING----------
 
 var server = express();
@@ -102,12 +102,12 @@ db.sequelize.sync(syncOptions).then(function () {
   app.listen(PORT2, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
+      PORT2,
+      PORT2
     );
   });
 });
-app.listen(PORT2, function () {
-  console.log("listening on port ", PORT2)
-})
+// app.listen(PORT2, function () {
+//   console.log("listening on port ", PORT2)
+// })
 

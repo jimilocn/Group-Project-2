@@ -51,7 +51,7 @@ $(document).ready(function () {
         API.getTodo().then(function (data) {
             var $todo = data.map(function (todo) {
 
-                var todoCard = "<div class='card yellow lighten-2 darken-1 list-group-item' data-id=" + todo.id + "><div class='card-content white-text'><span class='card-title grey-text text-darken-4'>" + todo.text + "</span><p class='grey-text text-darken-4'>" + todo.description + "</p></div><div class='card-action'><a href='#' class = 'btn-small red waves-effect waves-light delete' data-id=" + todo.id + " >Delete</a> <p> <label><input class = 'check' type='checkbox'/><span class='grey-text text-darken-4'>Completed </span></label></p>"
+                var todoCard = "<div class='card yellow lighten-2 darken-1 list-group-item' data-id=" + todo.id + "><div class='card-content white-text'><span class='card-title grey-text text-darken-4 font'>" + todo.text + "</span><p class='grey-text text-darken-4 font'>" + todo.description + "</p></div><div class='card-action'><a href='#' class = 'btn-small red waves-effect waves-light delete' data-id=" + todo.id + " >Delete</a> <p> <label><input class = 'check' type='checkbox'/><span class='grey-text text-darken-4'>Completed </span></label></p>"
                 // var $a = $("<a>")
                 //     .html("<h6>"+todo.text+"</h6>")
                 //     .attr("href", "/todo/" + todo.id);
