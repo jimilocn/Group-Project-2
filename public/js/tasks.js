@@ -16,7 +16,7 @@ $(document).ready(function () {
     // Get references to page elements
     var $todoText = $(".todo-text");
     var $todoDescription = $(".todo-description");
-    var $submitBtn = $("#submit");
+    var $submitBtn = $("#todo-submit");
     var $todoList = $(".todo-list");
 
 

@@ -19,8 +19,6 @@ html {
 }
 
 
-
-
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -83,55 +81,62 @@ html {
 }
 
 .chat-box-container {
-  width: 100%;
+  min-width: 300px;
+  height: 725px;
   background-color: #94b5ae;
-  border-color: #545454; 
-  border-style: solid; 
+  border-color: #545454;
+  border-style: solid;
   border-width: .5px;
   color: #0a0200;
   opacity: 0.9;
   margin: 5px;
   padding: 20px;
- }
-
-
-#chat-box {
-  min-width: inherit;
-  background-color: #94b5ae;
-  border-color: #545454; 
-  border-style: solid; 
-  border-width: .5px;
-  color:#0a0200;  
 }
 
-#form-input { 
-   border-color: #545454; 
-   border-style: solid; 
-   border-width: .5px;
-   background-color: #F8F8F8;
-   color: #0a0200;
-  }
-#form-button { 
-  background: #c6bdb4; 
+form { 
+  background: #c6bdb4;
+  padding: 3px; 
+  position: fixed;
+  bottom: 0; 
+  width: 100%; 
+  border-color: #545454; 
+  border-top-style: solid; 
+  border-top-width: 1px;
+  
+}
+
+form input { 
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  width: 85%;
+  margin-right: .5%;
+  color: #0a0200;
+}
+
+form button { 
+  width: 9%; 
+  background: #545454; 
   border: none; 
   padding: 10px; 
   margin-left: 2%;
-  font-size: 1.5rem;
+  color: #0a0200; 
 }
-
 #messages { 
   list-style-type: none; 
   margin: 0; 
-  padding: 0;
-  background-color: #94b5ae;
-  color: #0a0200; 
+  padding: 0; 
+  color: #0a0200;
 }
+
 #messages li { 
   padding: 5px 10px; 
+  color: #0a0200;
 }
 
 #messages li:nth-child(odd) { 
-  background: #94b5ae; 
+  background: #c6bdb4;
+  color: #0a0200; 
 }
 
 .list-group-item {

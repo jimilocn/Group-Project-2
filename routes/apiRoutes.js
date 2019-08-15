@@ -28,5 +28,10 @@ module.exports = function (app) {
   app.post("/translate", function (request, response) {
     //---------Calls The Function And Then Sends The Data To The HTML Page----------
     orm.translate(request.body.userText, request.body.langId, function (data) { response.send(data); })
-  })
+  });
+  //----------CHAT-CALLS----------
+
+
+
+
 };
