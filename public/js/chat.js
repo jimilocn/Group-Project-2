@@ -9,7 +9,7 @@ var roomSelected = "";
 $(document).ready(function () {
 
 //   //----------USER-LOGIN----------
-  var username = prompt('Please tell me your name');
+  var username = $("#username").val();
   socket.emit('username', username);
 
 //     //----------MESSAGE-DOM----------

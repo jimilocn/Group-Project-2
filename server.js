@@ -8,7 +8,7 @@ var PORT = process.env.PORT || 3000;
 
 //----------APP-SETUP----------
 
-const server = http.listen(8080, function () {
+const server = http.listen(8080, function() {
   console.log('listening on *:8080');
 });
 
@@ -23,11 +23,11 @@ app.use(express.json());
 
 //----------Socket-setup-----------
 
-io.sockets.on('connection', function (socket) {
-  socket.on('username', function (username) {
+io.sockets.on('connection', function(socket) {
+  socket.on('username', function(username) {
     socket.username = username;
     io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
-    connection.query("SELECT user, text FROM chat;", function (err, result) {
+    connection.query("SELECT user, text FROM chat;", function(err, result) {
       if (err) throw err;
       console.log(result);
     });
@@ -36,7 +36,8 @@ io.sockets.on('connection', function (socket) {
       io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
     })
 
-    socket.on('chat_message', function (message) {
+    app.post('/', function (req, res) {
+    socket.on('chat_message', function(message) {
       io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
       connection.query("INSERT INTO chat (user, text) VALUES (?, ?)", [socket.username, message], function (err, result) {
         if (err) throw err;
@@ -63,10 +64,10 @@ io.sockets.on('connection', function (socket) {
   module.exports = app;
 
   db.sequelize.sync(syncOptions).then(function () {
-    app.listen(PORT, function () {
+    app.listen (PORT, function () {
       console.log(
         "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
         PORT,
-        PORT);
-    });
-  })
+        PORT
+        );
+    }) 
