@@ -42,29 +42,31 @@
 
                         <img class="left" src="/assets/mmwwlogo.png" id="logo" alt="MMWW" style="height:60px">
                     </div>
-                    <div class="col s12 m4">
-                        <ul id="nav-mobile" class="">
-
-                            <div class="input-field col s12">
-
-                                <input name="firstname" type="text" id="autocomplete-input"
-                                    class="autocomplete todo-description username">
-                                <label for="autocomplete-input">enter your name</label>
-
-                                <button class="btn waves-effect waves-light" type="submit" name="action"
-                                    id="submitName">ADD
-
-                                </button>
-                            </div>
+                    <div class="col s12 m2">
 
 
-                        </ul>
+                        <div class="input-field">
+
+                            <input name="firstname" type="text" id="autocomplete-input"
+                                class="autocomplete username">
+                            <label for="autocomplete-input">ENTER YOUR NAME</label>
+
+
+                        </div>
+
+
+
                     </div>
-                </div>
-            </nav>
-    </div>
-    </header>
 
+                    <div class="col m2"><button class="btn waves-effect waves-light" type="submit" name="action"
+                            id="submitName">ADD</button></div>
+
+                </div>
+
+            </nav>
+
+        </header>
+    </div>
     <div class="container">
 
 
@@ -117,6 +119,84 @@
                     </div>
                 </div>
             </div>
+            <div class="col m1"></div>
+          
+
+            <div class="col m7">
+                <div class="row" style="margin-top:80px;">
+                    <form class="create-form text-center">
+                        <div class="form-group">
+                            <input type="text" id="newName" placeholder="Text To Translate">
+                        </div>
+                        <button type="submit" class="btn btn-outline-dark" id="translateButton">Translate</button>
+                        <div id="languages"></div>
+                    </form>
+
+                </div>
+                <div class="row">
+                    <div class="container chat">
+                        <div class="row">
+                            <div class="col s12 m12 chat-room">
+                                <div class="input-field col s5 room-input">
+                                    <input id="room_enter" type="text" class="validate">
+                                    <label for="room_enter">Enter in a chat room number</label>
+                                </div>
+                                <div class="room-select"></div>
+                                <div class="input-field col s7 room-select">
+                                    <select>
+                                        <option value="">Select a chat room</option>
+                                        <option value="1">4539</option>
+                                        <option value="2">1</option>
+                                    </select>
+                                    <label>Chat rooms</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card" id="chat-box-container">
+                                <div class="row">
+                                    <div class="col s12 m12">
+                                        <div class="card-content chat-history">
+                                            <table>
+                                                <thead class="hide-table-header">
+                                                    <tr>
+                                                        <th>Sent by</th>
+                                                        <th>Message</th>
+                                                        <th>Sent on</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="left" id="chat-from">Sample from</td>
+                                                        <td class="center" id="chat-message">Sample Text message</td>
+                                                        <td class="right" id="chat-sent-date">8/10/19 2:00pm</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12">
+                                        <div class="chat-box">
+                                            <form class="form" action="/" method=" POST">
+                                                <input id="form-input" autocomplete="off" autofocus="on" placeholder="type your message
+                                                here..." /><button class="btn waves-effect waves-light" type="submit"
+                                                    name="action" id="form-button">SEND</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col m2"></div>
+            <div class="col m6">
+                <img src="/assets/mmwwlogo.png" alt="LOGO">
+            </div> -->
 
         </div>
         <div class="row">
@@ -130,7 +210,7 @@
         </div>
     </div>
 
-    <div id='calendar'>
+    <div id='calendar' style="background:whitesmoke; opacity: 0.875;">
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var calendarEl = document.getElementById('calendar');
@@ -157,7 +237,7 @@
                     eventDrop: function (info) {
                         console.log(info)
                         alert(info.event.title + " was dropped on " + info.event.start
-                        .toISOString());
+                            .toISOString());
                         if (!confirm("Are you sure about this change?")) {
                             info.revert();
                         }
@@ -189,72 +269,7 @@
         </script>
     </div>
 
-    <form class="create-form text-center">
-        <div class="form-group">
-            <input type="text" id="newName" placeholder="Text To Translate">
-        </div>
-        <button type="submit" class="btn btn-outline-dark" id="translateButton">Translate</button>
-        <div id="languages"></div>
-    </form>
 
-
-    <div class="container chat">
-        <div class="row">
-            <div class="col s12 m12 chat-room">
-                <div class="input-field col s5 room-input">
-                    <input id="room_enter" type="text" class="validate">
-                    <label for="room_enter">Enter in a chat room number</label>
-                </div>
-                <div class="room-select"></div>
-                <div class="input-field col s7 room-select">
-                    <select>
-                        <option value="">Select a chat room</option>
-                        <option value="1">4539</option>
-                        <option value="2">1</option>
-                    </select>
-                    <label>Chat rooms</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="card" id="chat-box-container">
-                <div class="row">
-                    <div class="col s12 m12">
-                        <div class="card-content chat-history">
-                            <table>
-                                <thead class="hide-table-header">
-                                    <tr>
-                                        <th>Sent by</th>
-                                        <th>Message</th>
-                                        <th>Sent on</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="left" id="chat-from">Sample from</td>
-                                        <td class="center" id="chat-message">Sample Text message</td>
-                                        <td class="right" id="chat-sent-date">8/10/19 2:00pm</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m12">
-                        <div class="chat-box">
-                            <form class="form" action="/" method=" POST">
-                                <input id="form-input" autocomplete="off" autofocus="on" placeholder="type your message
-                                    here..." /><button class="btn waves-effect waves-light" type="submit" name="action"
-                                    id="form-button">SEND</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../public/js/calendarfunction.js"></script>
