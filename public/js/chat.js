@@ -22,7 +22,7 @@ function roomDropdown() {
   }
 }
 
-var username = $("#username");
+var username = $(".username");
 var sendUsername = $("#submitName");
 
 sendUsername.click(function () {
