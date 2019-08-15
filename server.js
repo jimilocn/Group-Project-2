@@ -12,8 +12,9 @@ const PORT = 8080;
 const PORT2 = process.env.PORT || 3000;
 
 
-//----------MIDDLEWEAR
-app.use(express.urlencoded({ extended: false }));
+//----------MIDDLEWEAR----------
+//extended: may need to be false
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
