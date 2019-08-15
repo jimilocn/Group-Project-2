@@ -11,8 +11,9 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@vitalets/google-translate-api": "^2.9.0",
     "dotenv": "^8.0.0",
-    "express": "^4.17.0",
+    "express": "^4.17.1",
     "mysql2": "^1.6.5",
     "path": "^0.12.7",
     "sequelize": "^5.8.6",
@@ -27,5 +28,18 @@
     "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^6.2.0",
     "prettier": "^1.17.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimilocn/Group-Project-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/jimilocn/Group-Project-2/issues"
+  },
+  "homepage": "https://github.com/jimilocn/Group-Project-2#readme"
 }
