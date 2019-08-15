@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require('express');
 const socket = require('socket.io');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 // var db = require("./models");
 //----------CALLING----------
 
@@ -26,20 +28,50 @@ server.use(express.json());
 
 var io = socket(server1);
 
-io.on('connection', function (socket) {
+// io.on('connection', function (socket) {
 
-  console.log('Client..Connected', socket.id)
+  // console.log('Client..Connected', socket.id)
 
   // Handle chat event
-  socket.on('chat', function (data) {
-    // console.log(data);
-    io.sockets.emit('chat', data);
+  // socket.on('chat', function (data) {
+  //   // console.log(data);
+  //   io.sockets.emit('chat', data);
+  // });
+
+  // Handle typing event
+//   socket.on('typing', function (data) {
+//     socket.broadcast.emit('typing', data);
+//   });
+// });
+
+io.sockets.on('connection', function(socket) {
+
+  socket.on('username', function(username) {
+      socket.username = username;
+      
+      io.emit('is_online', '🔵 <i>' + socket.username + ' joined the chat..</i>');
+      connection.query("SELECT user, text FROM chat;", function(err, result){
+        if (err) throw err;
+        console.log(result);
+    });
+  });
+
+  socket.on('disconnect', function(username) {
+      io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
+  })
+
+  socket.on('chat_message', function(message) {
+      io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
+      connection.query("INSERT INTO chat (user, text) VALUES (?, ?)", [socket.username, message], function(err, result){
+          if (err) throw err;
+      });
   });
 
   // Handle typing event
   socket.on('typing', function (data) {
     socket.broadcast.emit('typing', data);
   });
+
 });
 
 
