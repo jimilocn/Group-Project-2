@@ -3,7 +3,7 @@ var mysql = require("mysql");
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+// var io = require('socket.io')(http);
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -13,14 +13,14 @@ var connection = mysql.createConnection({
     database: "dashboarddb"
 });
 
-connection.connect(function(err) {
-    if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-    }
+// connection.connect(function(err) {
+//     if (err) {
+//       console.error("error connecting: " + err.stack);
+//       return;
+//     }
   
-    console.log("connected as id " + connection.threadId);
-});
+//     console.log("connected as id " + connection.threadId);
+// });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

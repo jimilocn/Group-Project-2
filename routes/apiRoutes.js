@@ -1,6 +1,7 @@
 //----------Dependencies----------
 var db = require("../models");
 var orm = require("../config/orm.js");
+var mysql = require("mysql");
 
 module.exports = function (app) {
 

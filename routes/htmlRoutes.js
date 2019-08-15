@@ -1,7 +1,8 @@
 //----------DEPENDENCIES----------
 var path = require("path");
+var mysql = require("mysql");
 
-//----------EXPORTING
+//----------EXPORTING------------
 module.exports = function (app) {
 
 
@@ -12,7 +13,7 @@ module.exports = function (app) {
 
   });
 
-  //Temporary Route To Test The Translate Function
+  //----------Temporary Route To Test The Translate Function----------
   app.get("/translate", function (req, res) { res.sendFile(path.join(__dirname, "../views/index.html")); });
 
 };
