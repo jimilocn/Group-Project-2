@@ -112,11 +112,7 @@ html {
    color: #0a0200;
   }
 #form-button { 
-  background: #c6bdb4; 
-  border: none; 
-  padding: 10px; 
-  margin-left: 2%;
-  font-size: 1.5rem;
+  margin: 0 0 10px 10px;
 }
 
 #messages { 
@@ -136,4 +132,13 @@ html {
 
 .list-group-item {
   line-height: 2.5;
+}
+
+#translateButton {
+  margin-left: 10px;
+}
+
+#languages {
+  padding-left: 10px;
+  padding-right: 10px;
 }

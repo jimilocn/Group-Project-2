@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "Test",
-    "password": "Test1234",
+    "username": "marta",
+    "password": "mks409476",
     "database": "dashboarddb",
     "host": "localhost",
     "dialect": "mysql"
